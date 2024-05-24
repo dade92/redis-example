@@ -1,22 +1,25 @@
 package adapters.configuration;
 
 import adapters.RedisUserCache;
+import org.springframework.boot.context.properties.EnableConfigurationProperties;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import redis.clients.jedis.JedisPool;
-import redis.clients.jedis.JedisPoolConfig;
 import repository.UserCache;
 
 @Configuration
+@EnableConfigurationProperties(RedisCacheProperties.class)
 public class UserConfiguration {
 
     @Bean
-    public UserCache userCache() {
+    public UserCache userCache(
+        RedisCacheProperties redisCacheProperties
+    ) {
         JedisPool jedisPool = new JedisPool(
-            "redis-10412.c293.eu-central-1-1.ec2.redns.redis-cloud.com",
+            redisCacheProperties.host,
             10412,
-            "default",
-            "2h45mE827C31rCbEEMl1HmPzLfkC3MBl"
+            redisCacheProperties.user,
+            redisCacheProperties.password
         );
 
         return new RedisUserCache(jedisPool.getResource());
