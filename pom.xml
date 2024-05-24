@@ -5,10 +5,10 @@
     <modelVersion>4.0.0</modelVersion>
 
     <groupId>com.myprojects</groupId>
-    <artifactId>spring-example2</artifactId>
+    <artifactId>redis-example</artifactId>
     <version>1.0-SNAPSHOT</version>
 
-    <name>spring-example2</name>
+    <name>redis-example</name>
 
     <packaging>pom</packaging>
 
@@ -60,6 +60,13 @@
             <artifactId>kotlin-maven-allopen</artifactId>
             <version>${kotlin.version}</version>
         </dependency>
+        <!-- https://mvnrepository.com/artifact/org.apache.commons/commons-pool2 -->
+        <dependency>
+            <groupId>org.apache.commons</groupId>
+            <artifactId>commons-pool2</artifactId>
+            <version>2.12.0</version>
+        </dependency>
+
         <!--Testing libraries-->
         <!--TODO for some unknown reason version 5.9.0 of JUnit5 does not work! -->
         <dependency>

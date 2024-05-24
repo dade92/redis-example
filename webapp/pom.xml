@@ -9,7 +9,7 @@
 
     <parent>
         <groupId>com.myprojects</groupId>
-        <artifactId>spring-example2</artifactId>
+        <artifactId>redis-example</artifactId>
         <version>1.0-SNAPSHOT</version>
     </parent>
 
