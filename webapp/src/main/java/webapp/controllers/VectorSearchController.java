@@ -20,7 +20,7 @@ public class VectorSearchController {
     @PostMapping("/search")
     public void search() {
         try {
-            vectorSearch.execute();
+            vectorSearch.execute("That is a happy person");
         } catch (URISyntaxException e) {
             throw new RuntimeException(e);
         }
