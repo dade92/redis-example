@@ -96,7 +96,8 @@ public class VectorSearchImpl {
 
         // Execute the query
         List<Document> docs = unifiedjedis.ftSearch("vector_idx", query).getDocuments();
-        System.out.println(docs);
+
+        System.out.println(docs.stream().sorted(new DocumentsComparator()).toList());
     }
 
 }

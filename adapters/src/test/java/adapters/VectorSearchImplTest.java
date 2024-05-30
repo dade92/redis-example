@@ -6,7 +6,6 @@ import java.net.URISyntaxException;
 
 class VectorSearchImplTest {
 
-
     private VectorSearchImpl vectorSearch = new VectorSearchImpl(
         "redis-10412.c293.eu-central-1-1.ec2.redns.redis-cloud.com",
         "default",
