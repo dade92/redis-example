@@ -14,6 +14,6 @@ class VectorSearchImplTest {
 
     @Test
     void execute() throws URISyntaxException {
-        vectorSearch.execute("That is a dog");
+        vectorSearch.execute("sunny");
     }
 }

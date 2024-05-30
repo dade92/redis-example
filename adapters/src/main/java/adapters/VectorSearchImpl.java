@@ -87,7 +87,7 @@ public class VectorSearchImpl {
 //        unifiedjedis.hset("doc:3", doc3);
 //        unifiedjedis.hset("doc:3".getBytes(), "embedding".getBytes(), longArrayToByteArray(sentenceTokenizer.encode(sentence3).getIds()));
 
-        int K = 3;
+        int K = 1;
         Query query = new Query("*=>[KNN $K @embedding $BLOB AS score]")
             .returnFields("content", "score")
             .addParam("K", K)
@@ -97,7 +97,7 @@ public class VectorSearchImpl {
         // Execute the query
         List<Document> docs = unifiedjedis.ftSearch("vector_idx", query).getDocuments();
 
-        System.out.println(docs.stream().sorted(new DocumentsComparator()).toList());
+        System.out.println(docs);
     }
 
 }
