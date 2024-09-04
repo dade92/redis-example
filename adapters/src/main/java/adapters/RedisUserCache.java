@@ -1,35 +1,35 @@
 package adapters;
 
-import com.fasterxml.jackson.core.JsonProcessingException;
-import com.fasterxml.jackson.databind.ObjectMapper;
+import adapters.utils.SerializationUtils;
 import data.User;
 import redis.clients.jedis.Jedis;
 import repository.UserCache;
 
+import java.io.IOException;
+
 public class RedisUserCache implements UserCache {
 
     private final Jedis jedis;
-    private final ObjectMapper objectMapper;
 
-    public RedisUserCache(Jedis jedis, ObjectMapper objectMapper) {
+    public RedisUserCache(Jedis jedis) {
         this.jedis = jedis;
-        this.objectMapper = objectMapper;
     }
 
     @Override
     public void add(User user) {
         try {
-            jedis.set(user.name(), objectMapper.writeValueAsString(user));
-        } catch (JsonProcessingException e) {
-
+            jedis.set(user.name().getBytes(), SerializationUtils.serialize(user));
+        } catch (IOException e) {
+            throw new RuntimeException(e);
         }
     }
 
     @Override
     public User retrieve(String name) {
         try {
-            return objectMapper.readValue(jedis.get(name), User.class);
-        } catch (JsonProcessingException e) {
+            byte[] user = jedis.get(name.getBytes());
+            return (User) SerializationUtils.deserialize(user);
+        } catch (IOException | ClassNotFoundException e) {
             throw new RuntimeException(e);
         }
     }

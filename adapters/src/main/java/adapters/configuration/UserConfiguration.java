@@ -1,7 +1,6 @@
 package adapters.configuration;
 
 import adapters.RedisUserCache;
-import com.fasterxml.jackson.databind.ObjectMapper;
 import org.springframework.boot.context.properties.EnableConfigurationProperties;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
@@ -21,7 +20,7 @@ public class UserConfiguration {
             6379
         );
 
-        return new RedisUserCache(jedisPool.getResource(), new ObjectMapper());
+        return new RedisUserCache(jedisPool.getResource());
     }
 
 }
