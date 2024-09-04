@@ -1,3 +1,3 @@
-cd local-env
+#!/bin/bash
 
-docker compose down
+docker stop some-redis

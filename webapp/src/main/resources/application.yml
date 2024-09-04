@@ -1,4 +1,4 @@
 redis:
-  host: redis-10412.c293.eu-central-1-1.ec2.redns.redis-cloud.com
+  host: localhost
   user: default
   password: 2h45mE827C31rCbEEMl1HmPzLfkC3MBl

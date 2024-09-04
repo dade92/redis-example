@@ -9,7 +9,6 @@ import org.springframework.context.annotation.Configuration;
 @EnableConfigurationProperties(RedisCacheProperties.class)
 public class VectorSearchConfiguration {
 
-
     @Bean
     public VectorSearchImpl vectorSearch(
         RedisCacheProperties redisCacheProperties
