@@ -20,9 +20,14 @@ public class UserController {
 
     @GetMapping("/user")
     public ResponseEntity<UserResponse> retrieveUser(@RequestParam String key) {
-        return ResponseEntity.ok(
-            UserResponse.from(userCache.retrieve(key))
-        );
+        User user = userCache.retrieve(key);
+        if (user == null) {
+            return ResponseEntity.notFound().build();
+        } else {
+            return ResponseEntity.ok(
+                UserResponse.from(user)
+            );
+        }
     }
 
     @PostMapping("/user/add")

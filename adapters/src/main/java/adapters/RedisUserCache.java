@@ -28,7 +28,11 @@ public class RedisUserCache implements UserCache {
     public User retrieve(String name) {
         try {
             byte[] user = jedis.get(name.getBytes());
-            return (User) SerializationUtils.deserialize(user);
+            if (user != null) {
+                return (User) SerializationUtils.deserialize(user);
+            } else {
+                return null;
+            }
         } catch (IOException | ClassNotFoundException e) {
             throw new RuntimeException(e);
         }
