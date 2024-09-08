@@ -19,8 +19,8 @@ public class UserController {
     }
 
     @GetMapping("/user")
-    public ResponseEntity<UserResponse> retrieveUser(@RequestParam String key) {
-        User user = userCache.retrieve(key);
+    public ResponseEntity<UserResponse> retrieveUser(@RequestParam String name) {
+        User user = userCache.retrieve(name);
         if (user == null) {
             return ResponseEntity.notFound().build();
         } else {

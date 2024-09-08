@@ -2,3 +2,8 @@ redis:
   host: localhost
   user: default
   password: 2h45mE827C31rCbEEMl1HmPzLfkC3MBl
+
+memcached:
+  host: localhost
+
+enabledCache: redis
