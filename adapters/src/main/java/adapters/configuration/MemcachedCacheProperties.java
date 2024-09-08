@@ -6,8 +6,13 @@ import org.springframework.boot.context.properties.ConfigurationProperties;
 public class MemcachedCacheProperties {
 
     public String host;
+    public int port;
 
     public void setHost(String host) {
         this.host = host;
+    }
+
+    public void setPort(int port) {
+        this.port = port;
     }
 }

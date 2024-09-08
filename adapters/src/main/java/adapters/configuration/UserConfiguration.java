@@ -22,7 +22,7 @@ public class UserConfiguration {
     public UserCache userCache(
         RedisCacheProperties redisCacheProperties
     ) {
-        JedisPool jedisPool = new JedisPool(redisCacheProperties.host, 6379);
+        JedisPool jedisPool = new JedisPool(redisCacheProperties.host, redisCacheProperties.port);
 
         return new RedisUserCache(jedisPool.getResource());
     }
@@ -32,7 +32,9 @@ public class UserConfiguration {
     public UserCache userCache2(
         MemcachedCacheProperties memcachedCacheProperties
     ) throws IOException {
-        MemcachedClient client = new MemcachedClient(new InetSocketAddress(memcachedCacheProperties.host, 11211));
+        MemcachedClient client = new MemcachedClient(
+            new InetSocketAddress(memcachedCacheProperties.host, memcachedCacheProperties.port)
+        );
 
         return new MemcachedUserCache(client);
     }

@@ -1,9 +1,11 @@
+enabledCache: memcached
+
 redis:
   host: localhost
+  port: 6379
   user: default
   password: 2h45mE827C31rCbEEMl1HmPzLfkC3MBl
 
 memcached:
   host: localhost
-
-enabledCache: redis
+  port: 11211
