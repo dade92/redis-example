@@ -1,6 +1,6 @@
 ### retrieve user in cache
 
-GET {{host}}/user?name=Sergio
+GET {{host}}/user?name=Davide
 Content-Type: application/json
 Accept: application/json
 
@@ -11,5 +11,5 @@ Content-Type: application/json
 Accept: application/json
 
 {
-  "name": "Sergio"
+  "name": "Davide"
 }

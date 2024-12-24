@@ -26,7 +26,7 @@ POST http://localhost:8080/user/add
 Read from the cache:
 
 ```http request
-GET http://localhost:8080/user
+GET http://localhost:8080/user?name=Sergio
 ```
 
 ## Run the entire application

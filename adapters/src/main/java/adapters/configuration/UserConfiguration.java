@@ -19,7 +19,7 @@ public class UserConfiguration {
 
     @Bean
     @ConditionalOnProperty(name = "enabledCache", havingValue = "redis")
-    public UserCache userCache(
+    public UserCache redisUserCache(
         RedisCacheProperties redisCacheProperties
     ) {
         JedisPool jedisPool = new JedisPool(redisCacheProperties.host, redisCacheProperties.port);
@@ -29,7 +29,7 @@ public class UserConfiguration {
 
     @Bean
     @ConditionalOnProperty(name = "enabledCache", havingValue = "memcached")
-    public UserCache userCache2(
+    public UserCache memcachedUserCache(
         MemcachedCacheProperties memcachedCacheProperties
     ) throws IOException {
         MemcachedClient client = new MemcachedClient(
