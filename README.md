@@ -11,7 +11,7 @@ the run script to change the docker image.
 
 ## How to use
 
-Application contains two endpoint, one to write data in the cache and the other one to retrieve data from the cache.
+Application contains two APIs, one to write data in the cache and the other one to retrieve data from the cache.
 
 Write in the cache:
 
